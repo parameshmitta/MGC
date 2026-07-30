@@ -1,0 +1,57 @@
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Layout from '../components/layout/Layout';
+
+// Page Components
+import Home from '../pages/Home';
+import About from '../pages/About';
+import Gallery from '../pages/Gallery';
+import YearGallery from '../pages/YearGallery';
+import Videos from '../pages/Videos';
+import VillageHelp from '../pages/VillageHelp';
+import Events from '../pages/Events';
+import Committee from '../pages/Committee';
+import Sponsors from '../pages/Sponsors';
+import Contact from '../pages/Contact';
+import AdminLogin from '../pages/AdminLogin';
+import AdminDashboard from '../pages/AdminDashboard';
+
+// Dynamic route protection component
+const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const isAuth = localStorage.getItem('adminAuthenticated') === 'true';
+  return isAuth ? <>{children}</> : <Navigate to="/admin-login" replace />;
+};
+
+export const AppRoutes: React.FC = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="gallery" element={<Gallery />} />
+        <Route path="gallery/:year" element={<YearGallery />} />
+        <Route path="videos" element={<Videos />} />
+        <Route path="village-help" element={<VillageHelp />} />
+        <Route path="events" element={<Events />} />
+        <Route path="committee" element={<Committee />} />
+        <Route path="sponsors" element={<Sponsors />} />
+        <Route path="contact" element={<Contact />} />
+      </Route>
+      
+      {/* Admin Routes */}
+      <Route path="/admin-login" element={<AdminLogin />} />
+      <Route
+        path="/admin-dashboard"
+        element={
+          <ProtectedRoute>
+            <AdminDashboard />
+          </ProtectedRoute>
+        }
+      />
+      
+      {/* Fallback redirect */}
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+  );
+};
+export default AppRoutes;
