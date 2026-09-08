@@ -8,15 +8,15 @@ import { TIMELINE_DATA } from '../utils/mockData';
 export const Gallery: React.FC = () => {
   useSEO({
     title: 'Gallery Years',
-    description: 'Browse the year-wise Ganesh Chaturthi celebrations in Bandarupally Village. Select a year card (2021 - 2026) to view the exclusive festival photos, videos, schedules, sponsors, and immersion stories.',
+    description: 'Browse the year-wise Ganesh Chaturthi celebrations in Bandarupally Village. Select a year card (2015 - 2026) to view the exclusive festival photos, videos, schedules, sponsors, and immersion stories.',
   });
 
   const navigate = useNavigate();
 
-  // We only display years from 2021 to 2026 as requested
+  // We display years from 2015 to 2026
   const galleryYears = TIMELINE_DATA.filter(item => {
     const yr = parseInt(item.year);
-    return yr >= 2021 && yr <= 2026;
+    return yr >= 2015 && yr <= 2026;
   });
 
   return (
@@ -66,20 +66,14 @@ export const Gallery: React.FC = () => {
               </div>
 
               {/* Card Details */}
-              <div className="p-6 flex flex-col justify-between flex-grow">
+              <div className="p-5 flex flex-col justify-between flex-grow">
                 <div>
-                  <h3 className="font-cinzel text-lg font-black text-amber-950 dark:text-white leading-tight mb-2 group-hover:text-orange-600 dark:group-hover:text-amber-400 transition-colors">
+                  <h3 className="font-cinzel text-lg sm:text-xl font-black text-amber-950 dark:text-white leading-tight group-hover:text-orange-600 dark:group-hover:text-amber-400 transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-neutral-500 dark:text-neutral-400 font-semibold mb-4">
-                    Idol Height: {item.idolHeight}
-                  </p>
-                  <p className="text-xs text-neutral-600 dark:text-neutral-400 line-clamp-2 leading-relaxed">
-                    {item.description}
-                  </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-amber-500/10 dark:border-neutral-800 flex items-center justify-between text-xs font-bold text-orange-600 dark:text-amber-400 uppercase tracking-widest">
+                <div className="mt-4 pt-3 border-t border-amber-500/10 dark:border-neutral-800 flex items-center justify-between text-xs font-bold text-orange-600 dark:text-amber-400 uppercase tracking-widest">
                   <span>Explore Year Details</span>
                   <FiArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
                 </div>

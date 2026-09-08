@@ -50,18 +50,8 @@ export const AdminLogin: React.FC = () => {
         
         {/* Sacred Brand Header */}
         <div className="flex flex-col items-center text-center mb-8">
-          <div className="w-14 h-14 text-orange-600 dark:text-amber-500 mb-4">
-            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-full h-full">
-              <path d="M40,25 L50,12 L60,25 Z" />
-              <path d="M45,25 L50,18 L55,25" />
-              <path d="M35,35 Q50,28 65,35" />
-              <path d="M50,23 L50,33" strokeWidth="3.5" stroke="red" />
-              <circle cx="50" cy="36" r="1.5" fill="red" />
-              <path d="M35,35 C20,38 25,55 38,50" />
-              <path d="M65,35 C80,38 75,55 62,50" />
-              <path d="M50,35 Q44,45 44,53 Q44,65 52,65 Q58,65 58,58 Q58,53 52,53 Q48,53 48,57" />
-              <path d="M38,50 C38,70 62,70 62,50" />
-            </svg>
+          <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-amber-400 shadow-xl shadow-amber-500/30 mb-4 bg-neutral-950 ring-4 ring-amber-500/20 p-0.5">
+            <img src="/logo.jpg" alt="Maha Ganapati Committee Circular Logo" className="w-full h-full object-cover rounded-full" />
           </div>
           
           <h2 className="font-cinzel text-xl font-black text-amber-950 dark:text-white uppercase tracking-wider leading-none">

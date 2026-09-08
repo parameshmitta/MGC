@@ -7,11 +7,9 @@ import Home from '../pages/Home';
 import About from '../pages/About';
 import Gallery from '../pages/Gallery';
 import YearGallery from '../pages/YearGallery';
-import Videos from '../pages/Videos';
 import VillageHelp from '../pages/VillageHelp';
 import Events from '../pages/Events';
 import Committee from '../pages/Committee';
-import Sponsors from '../pages/Sponsors';
 import Contact from '../pages/Contact';
 import AdminLogin from '../pages/AdminLogin';
 import AdminDashboard from '../pages/AdminDashboard';
@@ -30,11 +28,11 @@ export const AppRoutes: React.FC = () => {
         <Route path="about" element={<About />} />
         <Route path="gallery" element={<Gallery />} />
         <Route path="gallery/:year" element={<YearGallery />} />
-        <Route path="videos" element={<Videos />} />
+        <Route path="videos" element={<Navigate to="/gallery" replace />} />
         <Route path="village-help" element={<VillageHelp />} />
         <Route path="events" element={<Events />} />
         <Route path="committee" element={<Committee />} />
-        <Route path="sponsors" element={<Sponsors />} />
+        <Route path="sponsors" element={<Navigate to="/" replace />} />
         <Route path="contact" element={<Contact />} />
       </Route>
       

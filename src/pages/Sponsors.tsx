@@ -100,13 +100,13 @@ export const Sponsors: React.FC = () => {
             Want to Sponsor Annadanam or Laddu Prasadam?
           </h3>
           <p className="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-xl mx-auto mb-6">
-            If you wish to contribute to the Ganesha celebrations or book a specific day morning/evening prasadam sponsor, please reach out to the committee president Paramesh Mitta or write to us.
+            If you wish to contribute to the Ganesha celebrations or book a specific day morning/evening prasadam sponsor, please reach out to the committee core member Mitta Paramesh or write to us.
           </p>
           <a 
-            href="tel:+919876543210"
+            href="tel:+918555839756"
             className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 hover:scale-105 active:scale-95 transition-all text-white font-bold text-xs uppercase tracking-widest shadow-md"
           >
-            Contact President
+            Contact Committee
           </a>
         </div>
 

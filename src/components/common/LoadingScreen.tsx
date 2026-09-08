@@ -74,7 +74,7 @@ export const LoadingScreen: React.FC = () => {
           transition={{ delay: 0.7, duration: 0.5 }}
           className="mt-1.5 text-xs font-semibold tracking-widest text-orange-600 dark:text-orange-500/80 uppercase text-center"
         >
-          Bandarupally Village
+          Bandarupally
         </motion.p>
 
         {/* Simple Progress Line */}

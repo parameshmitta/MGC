@@ -78,7 +78,7 @@ export const Contact: React.FC = () => {
               </div>
               <div>
                 <strong className="text-amber-950 dark:text-white block mb-0.5">Festival Pandal Location</strong>
-                Maha Ganapati Pandal, Main Bazaar, Bandarupally Village, Guntur Dist, Andhra Pradesh, India.
+                Maha Ganapati Pandal, Main Bazaar, Bandarupally Village, Mulugu Mandal, Mulugu Dist, Telangana, India.
               </div>
             </li>
             
@@ -88,7 +88,7 @@ export const Contact: React.FC = () => {
               </div>
               <div>
                 <strong className="text-amber-950 dark:text-white block mb-0.5">Phone Contact</strong>
-                <a href="tel:+919876543210" className="hover:text-orange-600 transition-colors">+91 98765 43210</a> (Paramesh)
+                <a href="tel:+918555839756" className="hover:text-orange-600 transition-colors">+91 85558 39756</a> (Paramesh)
               </div>
             </li>
 
@@ -118,7 +118,7 @@ export const Contact: React.FC = () => {
               <FiFacebook /> Facebook
             </a>
             <a 
-              href="https://wa.me/919876543210" target="_blank" rel="noreferrer"
+              href="https://wa.me/918555839756" target="_blank" rel="noreferrer"
               className="flex items-center gap-1.5 px-4.5 py-2.5 rounded-full bg-amber-500/5 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 font-bold text-[10px] uppercase border border-amber-500/10 hover:border-amber-500/30"
             >
               <FiMessageCircle /> WhatsApp
@@ -195,16 +195,25 @@ export const Contact: React.FC = () => {
 
       </section>
 
-      {/* Google Map Embed of Bandarupally */}
-      <section className="mt-12 max-w-7xl mx-auto px-4 w-full h-[400px] rounded-3xl overflow-hidden shadow-md border border-amber-500/10 dark:border-neutral-800 bg-neutral-900">
-        <iframe 
-          src="https://maps.google.com/maps?q=Bandarupally,Andhra%20Pradesh,India&t=&z=13&ie=UTF8&iwloc=&output=embed"
-          width="100%" 
-          height="100%" 
-          style={{ border: 0 }} 
-          loading="lazy"
-          title="Google Map Bandarupally"
-        />
+      {/* Google Map Embed of Bandarupally, Mulugu District, Telangana */}
+      <section className="mt-12 max-w-7xl mx-auto px-4 w-full">
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-3 p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-xs font-bold text-amber-950 dark:text-amber-300">
+          <span className="flex items-center gap-2">
+            <FiMapPin className="text-orange-600 dark:text-amber-400 w-4 h-4" />
+            <span>Village: <strong>Bandarupally</strong> | Mandal: <strong>Mulugu</strong> | District: <strong>Mulugu District</strong> | State: <strong>Telangana</strong> (PIN: 506343)</span>
+          </span>
+          <span className="text-[11px] uppercase tracking-wider text-orange-600 dark:text-amber-400 font-black">Telangana, India</span>
+        </div>
+        <div className="h-[400px] rounded-3xl overflow-hidden shadow-md border border-amber-500/10 dark:border-neutral-800 bg-neutral-900">
+          <iframe 
+            src="https://maps.google.com/maps?q=Bandarupally,Mulugu,Telangana,506343,India&t=&z=14&ie=UTF8&iwloc=&output=embed"
+            width="100%" 
+            height="100%" 
+            style={{ border: 0 }} 
+            loading="lazy"
+            title="Google Map Bandarupally Mulugu Telangana"
+          />
+        </div>
       </section>
 
     </div>

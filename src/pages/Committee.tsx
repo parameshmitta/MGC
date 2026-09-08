@@ -19,9 +19,9 @@ export const Committee: React.FC = () => {
     
     let matchesRole = true;
     if (roleFilter === 'officers') {
-      matchesRole = ['President', 'Vice President', 'Secretary', 'Treasurer', 'Co-Treasurer'].includes(member.role);
+      matchesRole = member.role === 'Core Member';
     } else if (roleFilter === 'members') {
-      matchesRole = !['President', 'Vice President', 'Secretary', 'Treasurer', 'Co-Treasurer'].includes(member.role);
+      matchesRole = member.role !== 'Core Member';
     }
     
     return matchesSearch && matchesRole;
@@ -33,7 +33,14 @@ export const Committee: React.FC = () => {
       {/* Header Banner */}
       <section className="relative py-16 bg-gradient-to-r from-orange-600 to-amber-500 text-white text-center">
         <div className="absolute inset-0 bg-black/10" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 flex flex-col items-center">
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            className="w-16 h-16 rounded-full overflow-hidden border-2 border-amber-300/80 shadow-lg shadow-black/25 mb-4 bg-neutral-950 ring-2 ring-white/20 p-0.5"
+          >
+            <img src="/logo.jpg" alt="Maha Ganapati Committee Circular Logo" className="w-full h-full object-cover rounded-full" />
+          </motion.div>
           <h1 className="font-cinzel text-3xl sm:text-5xl font-black tracking-wider text-glow-gold">
             COMMITTEE TEAM
           </h1>
@@ -65,7 +72,7 @@ export const Committee: React.FC = () => {
           <div className="flex gap-2 w-full md:w-auto overflow-x-auto no-scrollbar">
             {[
               { id: 'all', label: 'All Members' },
-              { id: 'officers', label: 'Core Officers' },
+              { id: 'officers', label: 'Core Members' },
               { id: 'members', label: 'Executive Body' }
             ].map((btn) => (
               <button
@@ -103,6 +110,7 @@ export const Committee: React.FC = () => {
                     src={member.photo} 
                     alt={member.name} 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    style={{ objectPosition: member.objectPosition || 'center' }}
                     loading="lazy"
                   />
                 </div>

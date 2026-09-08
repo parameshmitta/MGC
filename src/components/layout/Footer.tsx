@@ -12,26 +12,21 @@ export const Footer: React.FC = () => {
           
           {/* Logo & Vision Column */}
           <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 text-amber-400">
-                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" className="w-full h-full">
-                  <path d="M40,25 L50,12 L60,25 Z" />
-                  <path d="M45,25 L50,18 L55,25" />
-                  <path d="M35,35 Q50,28 65,35" />
-                  <path d="M50,23 L50,33" strokeWidth="3.5" stroke="red" />
-                  <circle cx="50" cy="36" r="1.5" fill="red" />
-                  <path d="M35,35 C20,38 25,55 38,50" />
-                  <path d="M65,35 C80,38 75,55 62,50" />
-                  <path d="M50,35 Q44,45 44,53 Q44,65 52,65 Q58,65 58,58 Q58,53 52,53 Q48,53 48,57" />
-                  <path d="M38,50 C38,70 62,70 62,50" />
-                </svg>
+            <div className="flex items-center gap-3">
+              <div className="w-11 h-11 rounded-full overflow-hidden border border-amber-400/80 shadow-md shadow-amber-500/20 flex-shrink-0 bg-neutral-950 ring-2 ring-amber-500/20">
+                <img src="/logo.jpg" alt="Maha Ganapati Committee Circular Logo" className="w-full h-full object-cover rounded-full" />
               </div>
-              <span className="font-cinzel text-lg font-bold tracking-wider text-amber-400">
-                MAHA GANAPATI
-              </span>
+              <div className="flex flex-col">
+                <span className="font-cinzel text-base sm:text-lg font-bold tracking-wider text-amber-400 leading-none">
+                  MAHA GANAPATI
+                </span>
+                <span className="text-[10px] font-bold tracking-widest text-amber-300/70 uppercase leading-none mt-1">
+                  Bandarupally
+                </span>
+              </div>
             </div>
             <p className="text-xs text-amber-100/60 leading-relaxed font-medium">
-              Organizing and celebrating the divine Ganesh Chaturthi festival since 2018 in Bandarupally Village. Uniting the community through spirituality, service, and cultural excellence.
+              Organizing and celebrating the divine Ganesh Chaturthi festival for over 15+ years in Bandarupally Village. Uniting the community through spirituality, service, and cultural excellence.
             </p>
             <div className="flex items-center gap-3 mt-2">
               <a
@@ -73,12 +68,10 @@ export const Footer: React.FC = () => {
               <NavLink to="/" className="text-amber-100/70 hover:text-amber-400 transition-colors">Home</NavLink>
               <NavLink to="/about" className="text-amber-100/70 hover:text-amber-400 transition-colors">About</NavLink>
               <NavLink to="/gallery" className="text-amber-100/70 hover:text-amber-400 transition-colors">Gallery</NavLink>
-              <NavLink to="/videos" className="text-amber-100/70 hover:text-amber-400 transition-colors">Videos</NavLink>
-              <NavLink to="/village-help" className="text-amber-100/70 hover:text-amber-400 transition-colors">Village Help</NavLink>
+              <NavLink to="/village-help" className="text-amber-100/70 hover:text-amber-400 transition-colors">Bandarupally Seva</NavLink>
               <NavLink to="/events" className="text-amber-100/70 hover:text-amber-400 transition-colors">Events</NavLink>
               <NavLink to="/committee" className="text-amber-100/70 hover:text-amber-400 transition-colors">Committee</NavLink>
-              <NavLink to="/sponsors" className="text-amber-100/70 hover:text-amber-400 transition-colors">Sponsors</NavLink>
-              <NavLink to="/contact" className="text-amber-100/70 hover:text-amber-400 transition-colors col-span-2">Contact Us</NavLink>
+              <NavLink to="/contact" className="text-amber-100/70 hover:text-amber-400 transition-colors">Contact Us</NavLink>
             </div>
           </div>
 
@@ -90,11 +83,11 @@ export const Footer: React.FC = () => {
             <ul className="flex flex-col gap-3.5 text-xs font-medium text-amber-100/70">
               <li className="flex items-start gap-2.5">
                 <FiMapPin className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
-                <span>Maha Ganapati Pandal, Bandarupally Village, Guntur Dist, Andhra Pradesh, India.</span>
+                <span>Maha Ganapati Pandal, Bandarupally Village, Mulugu Mandal, Mulugu Dist, Telangana, India.</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <FiPhone className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                <a href="tel:+919876543210" className="hover:text-amber-400 transition-colors">+91 98765 43210</a>
+                <a href="tel:+918555839756" className="hover:text-amber-400 transition-colors">+91 85558 39756</a>
               </li>
               <li className="flex items-center gap-2.5">
                 <FiMail className="w-4 h-4 text-amber-400 flex-shrink-0" />
@@ -134,7 +127,7 @@ export const Footer: React.FC = () => {
           </p>
           <p className="text-center sm:text-right">
             Designed with devotion for{' '}
-            <span className="text-amber-400">Bandarupally Village</span>
+            <span className="text-amber-400">Bandarupally</span>
           </p>
         </div>
       </div>

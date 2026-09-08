@@ -14,7 +14,7 @@ const UPCOMING_EVENTS = [
   {
     id: 'ue1',
     title: 'Ganesha Clay Idol Sthapana & Pooja',
-    date: '2026-09-15',
+    date: '2026-09-14',
     time: '08:30 AM onwards',
     location: 'Main Bazar Pandal, Bandarupally',
     desc: 'Installation ceremony (Sthapana) of the 15ft Ganesha clay idol with Vedic chants and Ganapati Homa.',
@@ -27,7 +27,7 @@ const UPCOMING_EVENTS = [
     time: '12:00 PM - 04:00 PM',
     location: 'ZPH High School Grounds, Bandarupally',
     desc: 'Mass food distribution drive serving fresh meals to over 5,000 devotees from Bandarupally and neighboring villages.',
-    prasadam: 'Complete Andhra Traditional Feast'
+    prasadam: 'Complete Telangana Traditional Feast'
   },
   {
     id: 'ue3',
@@ -75,8 +75,8 @@ export const Events: React.FC = () => {
   const [availability, setAvailability] = useState('All Days');
 
   useEffect(() => {
-    // Ganesh Chaturthi date: Sept 15, 2026
-    const targetDate = new Date('2026-09-15T08:30:00+05:30').getTime();
+    // Ganesh Chaturthi date: Sept 14, 2026
+    const targetDate = new Date('2026-09-14T08:30:00+05:30').getTime();
 
     const calculateCountdown = () => {
       const now = new Date().getTime();
@@ -166,7 +166,7 @@ export const Events: React.FC = () => {
           </div>
 
           <p className="mt-8 text-xs text-neutral-400 max-w-md leading-relaxed">
-            Festival Sthapana begins on September 15, 2026 at 08:30 AM. Bookings for Annadanam and Harathi sponsors are open.
+            Festival Sthapana begins on September 14, 2026 at 08:30 AM. Bookings for Annadanam and Harathi sponsors are open.
           </p>
 
           <button

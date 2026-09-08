@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FiArrowLeft, FiImage, FiVideo, FiCalendar, FiTruck, FiUsers, FiSearch } from 'react-icons/fi';
+import { FiArrowLeft, FiImage, FiCalendar, FiTruck, FiUsers, FiSearch } from 'react-icons/fi';
 import { useSEO } from '../hooks/useSEO';
 import { getYearGallery } from '../utils/mockData';
 import type { YearGalleryData } from '../utils/mockData';
 import { ImageLightbox } from '../components/common/ImageLightbox';
 
-type TabType = 'photos' | 'videos' | 'events' | 'immersion' | 'sponsors';
+type TabType = 'photos' | 'events' | 'immersion' | 'team';
 
 export const YearGallery: React.FC = () => {
   const { year } = useParams<{ year: string }>();
@@ -29,7 +29,7 @@ export const YearGallery: React.FC = () => {
   useEffect(() => {
     if (!year) return;
     const yearNum = parseInt(year);
-    if (isNaN(yearNum) || yearNum < 2018 || yearNum > 2026) {
+    if (isNaN(yearNum) || yearNum < 2015 || yearNum > 2026) {
       navigate('/gallery');
       return;
     }
@@ -79,10 +79,9 @@ export const YearGallery: React.FC = () => {
 
   const tabs: Array<{ id: TabType; label: string; icon: React.ReactNode }> = [
     { id: 'photos', label: 'Photos', icon: <FiImage /> },
-    { id: 'videos', label: 'Videos', icon: <FiVideo /> },
     { id: 'events', label: 'Daily Events', icon: <FiCalendar /> },
     { id: 'immersion', label: 'Immersion', icon: <FiTruck /> },
-    { id: 'sponsors', label: 'Sponsors & Team', icon: <FiUsers /> },
+    { id: 'team', label: 'Volunteers Team', icon: <FiUsers /> },
   ];
 
   return (
@@ -110,7 +109,7 @@ export const YearGallery: React.FC = () => {
             {data.theme}
           </h1>
           <p className="mt-1.5 text-xs sm:text-sm font-semibold text-neutral-300">
-            Idol Height: {data.idolHeight} &bull; Bandarupally Village
+            Bandarupally Village &bull; Maha Ganapati Utsav
           </p>
         </div>
       </section>
@@ -173,6 +172,32 @@ export const YearGallery: React.FC = () => {
               </div>
             </div>
 
+            {/* 2026 Upcoming Celebration Notice */}
+            {data.year === '2026' && (
+              <div className="bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/10 border border-amber-500/30 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-sm">
+                <div className="flex items-center gap-3.5">
+                  <span className="relative flex h-3 w-3 shrink-0">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-orange-500"></span>
+                  </span>
+                  <div>
+                    <h4 className="font-cinzel text-sm sm:text-base font-black text-amber-950 dark:text-amber-300">
+                      Ganesh Chaturthi 2026 Preparations in Progress
+                    </h4>
+                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mt-0.5">
+                      Bandarupally Maha Ganapati Sthapana is set for Sept 14, 2026 with the sacred Bullock Cart Darshanam!
+                    </p>
+                  </div>
+                </div>
+                <Link
+                  to="/events"
+                  className="px-4 py-2 rounded-xl bg-gradient-to-r from-orange-600 to-amber-500 text-white font-black text-xs uppercase tracking-wider whitespace-nowrap shadow-md hover:scale-105 transition-transform"
+                >
+                  View Schedule
+                </Link>
+              </div>
+            )}
+
             {/* Photos Grid */}
             {currentPhotos.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -231,38 +256,6 @@ export const YearGallery: React.FC = () => {
           </div>
         )}
 
-        {/* TAB 2: VIDEOS */}
-        {activeTab === 'videos' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {data.videos.map((vid) => (
-              <motion.div 
-                key={vid.id}
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="glass-card rounded-2xl overflow-hidden shadow-sm"
-              >
-                <div className="aspect-video w-full bg-neutral-950 relative">
-                  <iframe 
-                    src={vid.url} 
-                    title={vid.title}
-                    className="w-full h-full"
-                    allowFullScreen
-                  />
-                </div>
-                <div className="p-5 flex justify-between items-center">
-                  <div>
-                    <h4 className="text-sm font-black text-amber-950 dark:text-white leading-tight">
-                      {vid.title}
-                    </h4>
-                    <span className="text-[10px] text-neutral-500 font-bold block mt-1">
-                      Duration: {vid.duration} mins
-                    </span>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        )}
 
         {/* TAB 3: DAILY EVENTS */}
         {activeTab === 'events' && (
@@ -345,70 +338,30 @@ export const YearGallery: React.FC = () => {
                 </ul>
               </div>
               
-              <div className="mt-8 p-3 rounded-xl bg-amber-500/5 dark:bg-neutral-800 border border-amber-500/10 text-[10px] text-center font-bold text-neutral-500 dark:text-neutral-400">
-                Immersion videos can be watched in the Videos Tab
-              </div>
             </motion.div>
 
           </div>
         )}
 
-        {/* TAB 5: SPONSORS & VOLUNTEERS */}
-        {activeTab === 'sponsors' && (
-          <div className="flex flex-col gap-12">
-            
-            {/* Sponsors Grid */}
+        {/* TAB 4: VOLUNTEERS TEAM */}
+        {activeTab === 'team' && (
+          <div className="flex flex-col gap-8 max-w-5xl mx-auto w-full">
             <div>
-              <h3 className="font-cinzel text-lg font-black text-amber-950 dark:text-white border-b border-amber-500/10 dark:border-neutral-800 pb-3 mb-6 flex items-center justify-between">
-                <span>Festival Sponsors</span>
-                <span className="text-xs font-bold text-orange-600 dark:text-amber-400">Generous Contributors</span>
-              </h3>
-              
-              {data.sponsors.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {data.sponsors.map((sp) => (
-                    <div key={sp.id} className="glass-card p-5 rounded-2xl text-center flex flex-col items-center">
-                      <div className="w-16 h-16 rounded-full overflow-hidden border border-amber-500/10 bg-amber-500/5 flex items-center justify-center text-amber-600 mb-3">
-                        <img src={sp.logo} alt={sp.name} className="w-full h-full object-cover" />
-                      </div>
-                      <h4 className="text-sm font-black text-amber-950 dark:text-white truncate max-w-full">
-                        {sp.name}
-                      </h4>
-                      <p className="text-[10px] text-neutral-400 font-semibold mt-0.5">
-                        Village: {sp.village}
-                      </p>
-                      {sp.amount && (
-                        <span className="mt-2.5 px-3 py-1 bg-green-500/10 border border-green-500/20 text-green-600 dark:text-green-400 rounded-full font-black text-xs">
-                          {sp.amount}
-                        </span>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <p className="text-neutral-400 text-xs font-semibold text-center py-6">
-                  No sponsors listed yet for this year.
-                </p>
-              )}
-            </div>
-
-            {/* Volunteers Lists */}
-            <div>
-              <h3 className="font-cinzel text-lg font-black text-amber-950 dark:text-white border-b border-amber-500/10 dark:border-neutral-800 pb-3 mb-6">
-                Organizing Volunteers Team
+              <h3 className="font-cinzel text-xl font-black text-amber-950 dark:text-white border-b border-amber-500/10 dark:border-neutral-800 pb-3 mb-6 flex items-center justify-between">
+                <span>Organizing Volunteers Team</span>
+                <span className="text-xs font-bold text-orange-600 dark:text-amber-400">Bandarupally Youth Force</span>
               </h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5">
                 {data.volunteers.map((vol, idx) => (
                   <div 
                     key={idx} 
-                    className="p-3 bg-amber-500/5 dark:bg-neutral-800 border border-amber-500/10 dark:border-neutral-700/50 rounded-xl text-center text-xs font-bold text-amber-950 dark:text-neutral-300"
+                    className="p-4 bg-amber-500/5 dark:bg-neutral-800/60 border border-amber-500/10 dark:border-neutral-700/50 rounded-xl text-center text-xs font-bold text-amber-950 dark:text-neutral-300 shadow-sm"
                   >
                     {vol}
                   </div>
                 ))}
               </div>
             </div>
-
           </div>
         )}
 

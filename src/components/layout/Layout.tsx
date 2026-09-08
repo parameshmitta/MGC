@@ -39,8 +39,8 @@ export const Layout: React.FC = () => {
           >
             <Navbar />
             
-            {/* Main content with top padding for sticky Navbar */}
-            <main className="flex-grow pt-20">
+            {/* Main content: pt-0 on Home page for seamless full-bleed hero, pt-20 on subpages */}
+            <main className={`flex-grow ${location.pathname === '/' ? 'pt-0' : 'pt-20'}`}>
               <Outlet />
             </main>
 

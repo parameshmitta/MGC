@@ -149,17 +149,8 @@ export const AdminDashboard: React.FC = () => {
       {/* Admin header */}
       <header className="bg-amber-950 text-white dark:bg-neutral-900 border-b border-amber-900/30 px-6 py-4.5 flex items-center justify-between shadow-md">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 text-amber-400">
-            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="3.5" className="w-full h-full">
-              <path d="M40,25 L50,12 L60,25 Z" />
-              <path d="M45,25 L50,18 L55,25" />
-              <path d="M50,23 L50,33" strokeWidth="4" stroke="red" />
-              <circle cx="50" cy="36" r="1.5" fill="red" />
-              <path d="M35,35 C20,38 25,55 38,50" />
-              <path d="M65,35 C80,38 75,55 62,50" />
-              <path d="M50,35 Q44,45 44,53 Q44,65 52,65 Q58,65 58,58 Q58,53 52,53 Q48,53 48,57" />
-              <path d="M38,50 C38,70 62,70 62,50" />
-            </svg>
+          <div className="w-9 h-9 rounded-full overflow-hidden border border-amber-400 shadow-md shadow-amber-500/20 flex-shrink-0 bg-neutral-950 ring-2 ring-amber-500/20">
+            <img src="/logo.jpg" alt="Maha Ganapati Committee Circular Logo" className="w-full h-full object-cover rounded-full" />
           </div>
           <div>
             <h1 className="font-cinzel text-base font-black tracking-wider text-amber-400 leading-none">

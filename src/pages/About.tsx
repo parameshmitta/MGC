@@ -7,7 +7,7 @@ import { TIMELINE_DATA, COMMITTEE_MEMBERS } from '../utils/mockData';
 export const About: React.FC = () => {
   useSEO({
     title: 'About',
-    description: 'Learn about the history, mission, and vision of the Maha Ganapati Committee in Bandarupally Village. Meet our organizing members and browse our historical timeline from 2018 to 2026.',
+    description: 'Learn about the history, mission, and vision of the Maha Ganapati Committee in Bandarupally Village. Meet our organizing members and browse our historical timeline from 2015 to 2026.',
   });
 
   return (
@@ -16,7 +16,14 @@ export const About: React.FC = () => {
       {/* Page Header */}
       <section className="relative py-16 bg-gradient-to-r from-orange-600 to-amber-500 text-white text-center">
         <div className="absolute inset-0 bg-black/10" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 flex flex-col items-center">
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            className="w-16 h-16 rounded-full overflow-hidden border-2 border-amber-300/80 shadow-lg shadow-black/25 mb-4 bg-neutral-950 ring-2 ring-white/20 p-0.5"
+          >
+            <img src="/logo.jpg" alt="Maha Ganapati Committee Circular Logo" className="w-full h-full object-cover rounded-full" />
+          </motion.div>
           <motion.h1 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -82,7 +89,7 @@ export const About: React.FC = () => {
             </div>
             <h3 className="font-cinzel text-lg font-bold text-amber-950 dark:text-white mb-3">Community Service</h3>
             <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
-              Extending help beyond the festival by setting up the Bandarupally Village Help Portal, connecting villagers to resolve road, lighting, and water issues collectively with transparency.
+              Extending help beyond the festival by setting up the Bandarupally Seva Portal, connecting villagers to resolve road, lighting, and water issues collectively with transparency.
             </p>
           </motion.div>
 
@@ -111,7 +118,7 @@ export const About: React.FC = () => {
               FESTIVAL TIMELINE JOURNEY
             </h2>
             <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-2 font-bold tracking-widest uppercase">
-              Our milestones and idol details from 2018 inception to 2026 present
+              Our milestones and idol details from 2015 to 2026 present
             </p>
             <div className="h-1 w-20 bg-orange-500 mx-auto mt-3 rounded-full" />
           </div>
@@ -155,9 +162,6 @@ export const About: React.FC = () => {
                         </p>
 
                         <div className="flex flex-col gap-1.5 text-xs text-neutral-500 dark:text-neutral-400 font-semibold border-t border-amber-500/10 dark:border-neutral-800 pt-3">
-                          <div>
-                            <span className="text-orange-600 dark:text-amber-400">Idol Height:</span> {item.idolHeight}
-                          </div>
                           <div>
                             <span className="text-orange-600 dark:text-amber-400">Specialty:</span> {item.specialty}
                           </div>
@@ -214,6 +218,7 @@ export const About: React.FC = () => {
                     src={member.photo} 
                     alt={member.name} 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    style={{ objectPosition: member.objectPosition || 'center' }}
                   />
                 </div>
 
