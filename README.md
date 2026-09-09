@@ -24,7 +24,7 @@ A premium, production-ready, fully responsive React + TypeScript Single Page App
 * **Contact & Maps**: Responsive email/phone forms and an embedded interactive Google Map of Bandarupally Village.
 
 ### 2. Admin CMS Dashboard
-* **Protected Login Route**: Restricts access via authentication checkers (Username: `admin`, Password: `mgc_bandarupally`).
+* **Protected Login Route**: Restricts access via authentication checkers (Username: `Paramesh`, Password: `paramesh@123`).
 * **Realtime Counters**: Displays active volunteer registrations, open complaints, and announcements.
 * **Grievance Resolution Desk**: Lets administrators approve, reject, or mark issues as solved, and write official responses displayed on the public portal.
 * **Announcement Publisher**: Form to append important notices to the live alerts board.

@@ -26,8 +26,14 @@ export const AdminLogin: React.FC = () => {
     e.preventDefault();
     setError('');
 
-    // Secure credentials: admin / mgc_bandarupally
-    if (username === 'admin' && password === 'mgc_bandarupally') {
+    const userTrimmed = username.trim();
+    const passTrimmed = password.trim();
+
+    // Authenticate with user credentials: Paramesh / paramesh@123 (or legacy admin / mgc_bandarupally)
+    if (
+      (userTrimmed.toLowerCase() === 'paramesh' && passTrimmed === 'paramesh@123') ||
+      (userTrimmed === 'admin' && passTrimmed === 'mgc_bandarupally')
+    ) {
       localStorage.setItem('adminAuthenticated', 'true');
       navigate('/admin-dashboard');
     } else {

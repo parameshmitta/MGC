@@ -23,7 +23,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     return isAuth ? 'admin' : 'user';
   });
 
-  const [adminName] = useState('Committee Admin (Bandarupally)');
+  const [adminName] = useState('Paramesh (Committee Admin)');
 
   useEffect(() => {
     const handleStorage = () => {
@@ -37,7 +37,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   const loginAsAdmin = (user: string, pass: string): boolean => {
-    if (user === 'admin' && pass === 'mgc_bandarupally') {
+    const userTrimmed = user.trim();
+    const passTrimmed = pass.trim();
+
+    if (
+      (userTrimmed.toLowerCase() === 'paramesh' && passTrimmed === 'paramesh@123') ||
+      (userTrimmed === 'admin' && passTrimmed === 'mgc_bandarupally')
+    ) {
       localStorage.setItem('adminAuthenticated', 'true');
       setIsAdmin(true);
       setRoleState('admin');
