@@ -14,10 +14,11 @@ import {
   FiArrowRight, 
   FiCheckCircle,
   FiTool,
-  FiHelpCircle
+  FiHelpCircle,
+  FiAward
 } from 'react-icons/fi';
 import { useSEO } from '../hooks/useSEO';
-import { ANNOUNCEMENTS, INSTAGRAM_POSTS } from '../utils/mockData';
+import { ANNOUNCEMENTS, INSTAGRAM_POSTS, BATHUKAMMA_EDITIONS } from '../utils/mockData';
 
 // Swiper styles
 import 'swiper/css';
@@ -52,6 +53,13 @@ export const Home: React.FC = () => {
 
   // Carousel slides with real celebration photos
   const carouselSlides = [
+    {
+      year: 'Maha Bathukamma',
+      title: 'Maha Bathukamma Celebrations',
+      image: '/bathukamma/maha_bathukamma_committee_main.jpg',
+      desc: 'Bandarupally youth committee proudly presenting the monumental floral Maha Bathukamma tradition.',
+      link: '/maha-bathukamma',
+    },
     {
       year: '2026',
       title: 'Maha Ganapati 2026 (Coming Soon)',
@@ -89,13 +97,9 @@ export const Home: React.FC = () => {
       
       {/* 1. Hero Section - Full Bleed Devotional Experience */}
       <section className="relative min-h-[95vh] sm:min-h-screen flex items-center justify-center bg-neutral-950 overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-24">
-        {/* Background Image with Saffron & Deep Mask */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 scale-105 transition-transform duration-1000"
-          style={{ backgroundImage: `url('/celebrations/ganesha_2025.jpg')` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/75 to-black/85" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(251,140,0,0.18),transparent_65%)]" />
+        {/* Ambient Devotional Lighting & Subtle Gradients */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(251,140,0,0.16),transparent_65%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.12),transparent_70%)] pointer-events-none" />
 
         <div className="relative max-w-5xl mx-auto px-4 text-center z-10 flex flex-col items-center">
           
@@ -323,7 +327,7 @@ export const Home: React.FC = () => {
                 <SwiperSlide 
                   key={idx} 
                   className="relative w-full h-full cursor-pointer group" 
-                  onClick={() => navigate(`/gallery/${slide.year}`)}
+                  onClick={() => navigate((slide as any).link || `/gallery/${slide.year}`)}
                 >
                   <img 
                     src={slide.image} 
@@ -336,10 +340,10 @@ export const Home: React.FC = () => {
                   <div className="absolute bottom-10 left-6 right-6 sm:left-14 sm:right-14 text-white">
                     <div className="flex flex-wrap items-center gap-2 mb-3">
                       <span className="px-3.5 py-1 rounded-full bg-orange-600 text-xs font-bold text-white tracking-wider uppercase shadow-md">
-                        Year {slide.year}
+                        {slide.year.startsWith('20') ? `Year ${slide.year}` : slide.year}
                       </span>
                       <span className="hidden sm:inline-flex items-center gap-1 text-xs text-amber-300 font-bold bg-black/40 backdrop-blur-sm px-3 py-1 rounded-full border border-amber-400/30">
-                        Click to view photos <FiArrowRight />
+                        Click to view details <FiArrowRight />
                       </span>
                     </div>
                     <h3 className="text-2xl sm:text-4xl font-black font-cinzel text-glow-gold">
@@ -357,7 +361,106 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 5. NEW: Village Welfare & Seva Spotlight Section */}
+      {/* 5. MAHA BATHUKAMMA Spotlight Section */}
+      <section className="py-16 sm:py-20 bg-gradient-to-b from-orange-50/40 to-amber-50/20 dark:from-neutral-950 dark:to-neutral-900 transition-colors duration-300 relative overflow-hidden">
+        {/* Subtle Decorative Floral Background Glow */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-orange-500/15 to-amber-500/15 text-orange-600 dark:text-amber-400 text-xs font-bold uppercase tracking-widest mb-3 border border-orange-500/20">
+              🌺 తెలంగాణ పూల పండుగ • Bandarupally Tradition
+            </div>
+            <h2 className="font-cinzel text-2xl sm:text-4xl font-extrabold text-amber-950 dark:text-white">
+              MAHA BATHUKAMMA
+            </h2>
+            <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mt-2 max-w-2xl mx-auto">
+              Celebrating Bandarupally's monumental floral heritage across landmark editions: <strong>2018</strong>, <strong>2019</strong>, <strong>2021</strong>, <strong>2022</strong>, <strong>2024</strong>, and <strong>2025</strong>. Handcrafted by dedicated youth volunteers using thousands of fresh blossoms.
+            </p>
+            <div className="h-1 w-20 bg-gradient-to-r from-orange-500 to-amber-400 mx-auto mt-3 rounded-full" />
+          </div>
+
+          {/* 6 Cards Grid (2 rows of 3 on desktop) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {BATHUKAMMA_EDITIONS.map((ed, idx) => (
+              <motion.div
+                key={ed.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                whileHover={{ y: -6 }}
+                onClick={() => navigate('/maha-bathukamma')}
+                className="glass-card flex flex-col rounded-2xl overflow-hidden shadow-lg border border-amber-500/20 dark:border-neutral-800 cursor-pointer group bg-white dark:bg-neutral-900"
+              >
+                {/* Photo Frame */}
+                <div className="h-64 sm:h-72 relative overflow-hidden bg-neutral-950">
+                  <img
+                    src={ed.image}
+                    alt={ed.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                  
+                  {/* Top Badges */}
+                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-black text-xs shadow-md flex items-center gap-1">
+                    <FiAward className="w-3.5 h-3.5" />
+                    <span>{ed.order}</span>
+                  </div>
+
+                  <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-sm border border-amber-400/30 text-amber-300 font-bold text-xs">
+                    {ed.year}
+                  </div>
+
+                  {/* Height Tag on Bottom Left of Image */}
+                  <div className="absolute bottom-3 left-3 text-white">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-amber-300 bg-black/50 px-2 py-0.5 rounded backdrop-blur-xs">
+                      Height: {ed.height}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Card Content */}
+                <div className="p-4 sm:p-5 flex flex-col justify-between flex-grow">
+                  <div>
+                    <h3 className="font-cinzel text-base sm:text-lg font-black text-amber-950 dark:text-white leading-tight group-hover:text-orange-600 dark:group-hover:text-amber-400 transition-colors">
+                      {ed.title}
+                    </h3>
+                    <p className="text-xs text-orange-600 dark:text-amber-400 font-bold mt-1">
+                      {ed.subtitle}
+                    </p>
+                    <p className="text-xs text-neutral-600 dark:text-neutral-300 mt-2 line-clamp-2 leading-relaxed">
+                      {ed.description}
+                    </p>
+                  </div>
+
+                  <div className="mt-4 pt-3 border-t border-amber-500/10 dark:border-neutral-800 flex items-center justify-between text-xs font-bold text-orange-600 dark:text-amber-400 uppercase tracking-wider">
+                    <span>View Edition Details</span>
+                    <FiArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Bottom Centered CTA */}
+          <div className="mt-12 text-center">
+            <button
+              onClick={() => navigate('/maha-bathukamma')}
+              className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full font-bold text-xs sm:text-sm uppercase tracking-wider bg-gradient-to-r from-orange-600 to-amber-500 hover:from-orange-500 hover:to-amber-400 text-white shadow-xl shadow-orange-600/25 hover:scale-105 active:scale-95 transition-all"
+            >
+              <span>Explore All Maha Bathukamma Editions</span>
+              <FiArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 6. Village Welfare & Seva Spotlight Section */}
       <section className="py-16 sm:py-20 bg-gradient-to-br from-amber-500/10 via-orange-50/30 to-amber-500/5 dark:from-neutral-950 dark:via-neutral-900/60 dark:to-neutral-950 border-y border-amber-500/10 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           

@@ -9,6 +9,7 @@ const MENU_ITEMS = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
   { name: 'Gallery', path: '/gallery' },
+  { name: 'Maha Bathukamma', path: '/maha-bathukamma' },
   { name: 'Bandarupally Seva', path: '/village-help' },
   { name: 'Events', path: '/events' },
   { name: 'Committee', path: '/committee' },
@@ -71,20 +72,20 @@ export const Navbar: React.FC = () => {
           </NavLink>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center gap-1 xl:gap-2">
+          <div className="hidden lg:flex items-center gap-0.5 xl:gap-1.5">
             {MENU_ITEMS.map((item) => (
               <NavLink
                 key={item.name}
                 to={item.path}
                 className={({ isActive }) => {
                   if (!scrolled && isHome) {
-                    return `px-3 py-2 rounded-lg text-xs xl:text-sm font-semibold tracking-wide transition-all duration-200 focus:outline-none ${
+                    return `px-2 xl:px-2.5 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-wide transition-all duration-200 focus:outline-none whitespace-nowrap ${
                       isActive
                         ? 'bg-amber-500/25 text-amber-300 border border-amber-400/40 shadow-sm backdrop-blur-sm'
                         : 'text-white/90 hover:text-amber-300 hover:bg-white/10'
                     }`;
                   }
-                  return `px-3 py-2 rounded-lg text-xs xl:text-sm font-semibold tracking-wide transition-all duration-200 focus:outline-none ${
+                  return `px-2 xl:px-2.5 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold tracking-wide transition-all duration-200 focus:outline-none whitespace-nowrap ${
                     isActive
                       ? 'bg-gradient-to-r from-orange-500/15 to-amber-500/15 text-orange-600 dark:text-amber-400 border border-orange-500/30'
                       : 'text-amber-950/80 hover:text-orange-600 hover:bg-orange-50 dark:text-neutral-300 dark:hover:text-amber-400 dark:hover:bg-neutral-800/50'

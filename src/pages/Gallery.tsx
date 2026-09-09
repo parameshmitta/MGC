@@ -37,6 +37,54 @@ export const Gallery: React.FC = () => {
 
       {/* Grid of Year Cards */}
       <section className="py-16 max-w-7xl mx-auto px-4 w-full">
+        
+        {/* Maha Bathukamma Featured Banner */}
+        <div className="mb-12 glass-card rounded-3xl overflow-hidden border-2 border-amber-400/40 p-6 sm:p-8 bg-gradient-to-r from-amber-500/15 via-orange-500/10 to-amber-500/5 dark:from-neutral-900 dark:via-neutral-800/60 dark:to-neutral-900 shadow-xl">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+            <div className="md:col-span-8 flex flex-col items-start">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold text-xs uppercase tracking-wider mb-3 shadow-sm">
+                <span>🌺 Telangana Floral Festival</span>
+              </div>
+              <h2 className="font-cinzel text-2xl sm:text-3xl font-black text-amber-950 dark:text-white">
+                MAHA BATHUKAMMA SPECIAL GALLERY
+              </h2>
+              <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 mt-2 leading-relaxed">
+                Explore the landmark editions from <strong>2018 to 2025</strong> of Bandarupally's monumental floral tradition, featuring 15+ to 20+ foot monuments handcrafted by village youth.
+              </p>
+              <button
+                onClick={() => navigate('/maha-bathukamma')}
+                className="mt-5 inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-bold text-xs uppercase tracking-wider bg-gradient-to-r from-orange-600 to-amber-500 hover:from-orange-500 hover:to-amber-400 text-white shadow-md shadow-orange-600/20 hover:scale-105 active:scale-95 transition-all"
+              >
+                <span>View All Maha Bathukamma Editions</span>
+                <FiArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+            <div className="md:col-span-4 flex items-center justify-center gap-2">
+              <div 
+                onClick={() => navigate('/maha-bathukamma')}
+                className="w-20 sm:w-24 h-28 sm:h-32 rounded-xl overflow-hidden shadow-md border border-amber-400/30 transform -rotate-3 hover:rotate-0 transition-transform cursor-pointer"
+                title="Maha Bathukamma 2024"
+              >
+                <img src="/bathukamma/bathukamma_2024_2.jpg" alt="Maha Bathukamma 2024" className="w-full h-full object-cover" />
+              </div>
+              <div 
+                onClick={() => navigate('/maha-bathukamma')}
+                className="w-24 sm:w-28 h-32 sm:h-36 rounded-xl overflow-hidden shadow-lg border-2 border-amber-400/60 z-10 hover:scale-105 transition-transform cursor-pointer"
+                title="Maha Bathukamma 2025"
+              >
+                <img src="/bathukamma/bathukamma_2025_1.jpg" alt="Maha Bathukamma 2025" className="w-full h-full object-cover" />
+              </div>
+              <div 
+                onClick={() => navigate('/maha-bathukamma')}
+                className="w-20 sm:w-24 h-28 sm:h-32 rounded-xl overflow-hidden shadow-md border border-amber-400/30 transform rotate-3 hover:rotate-0 transition-transform cursor-pointer"
+                title="Maha Bathukamma 2022"
+              >
+                <img src="/bathukamma/bathukamma_2022.jpg" alt="Maha Bathukamma 2022" className="w-full h-full object-cover" />
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {galleryYears.map((item, index) => (
             <motion.div

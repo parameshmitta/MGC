@@ -519,3 +519,130 @@ export const getYearGallery = (year: string): YearGalleryData => {
     ]
   };
 };
+
+export interface BathukammaEdition {
+  id: string;
+  year: string;
+  order: string;
+  title: string;
+  subtitle: string;
+  image: string;
+  photos: string[];
+  height: string;
+  flowersUsed: string;
+  description: string;
+  highlights: string[];
+}
+
+export const BATHUKAMMA_EDITIONS: BathukammaEdition[] = [
+  {
+    id: 'bathukamma-2018',
+    year: '2018',
+    order: 'First',
+    title: 'Maha Bathukamma 2018',
+    subtitle: 'The Historic Inaugural Landmark',
+    image: '/bathukamma/bathukamma_2018.jpg',
+    photos: ['/bathukamma/bathukamma_2018.jpg'],
+    height: '14+ Feet',
+    flowersUsed: 'Banthi (Marigold), Chamanti, Gunugu, Thangedu, Mango Leaves',
+    description: 'The historic first Maha Bathukamma initiated by the Maha Ganapati Committee youth of Bandarupally. Featuring vibrant yellow and orange marigold concentric tiers, crowned with purple floral initials "MGC", accompanied by village women carrying traditional Bathukammas.',
+    highlights: [
+      'Inaugural historic milestone in Bandarupally village',
+      'Handcrafted purple blossom letters "MGC" on top cone',
+      'Fresh green mango leaf band around the midsection',
+      'United village women and youth in celebratory folk dance'
+    ]
+  },
+  {
+    id: 'bathukamma-2019',
+    year: '2019',
+    order: 'Second',
+    title: 'Maha Bathukamma 2019',
+    subtitle: 'Grand Symmetrical Floral Pyramid',
+    image: '/bathukamma/bathukamma_2019.jpg',
+    photos: ['/bathukamma/bathukamma_2019.jpg'],
+    height: '16+ Feet',
+    flowersUsed: 'Yellow & Orange Marigold, Fresh Mango Foliage, Scented Flora',
+    description: 'The spectacular second edition showcasing impeccable cone geometry and symmetrical layered rings of golden and saffron marigold blossoms. Interspersed with a dense traditional mango leaf collar (Thoranam) honoring Telangana cultural traditions.',
+    highlights: [
+      'Perfect conical architectural symmetry',
+      'Lush green mango leaf collar defining the lower tier',
+      'Over 8,000 fresh handpicked floral heads assembled',
+      'Special evening prayers & traditional Bathukamma songs'
+    ]
+  },
+  {
+    id: 'bathukamma-2021',
+    year: '2021',
+    order: 'Third',
+    title: 'Maha Bathukamma 2021',
+    subtitle: 'Maha Ganapati Committee Special',
+    image: '/bathukamma/bathukamma_2021.jpg',
+    photos: ['/bathukamma/bathukamma_2021.jpg'],
+    height: '15+ Feet',
+    flowersUsed: 'Golden Marigold, Saffron Banthi, Red Hibiscus & Rose crown',
+    description: 'A grand community-wide congregation where the towering central Maha Bathukamma proudly displayed the "మహా గణపతి కమిటీ" (Maha Ganapati Committee) banner. Encircled by dozens of domestic Bathukammas prepared with love by village women in traditional Pattu sarees.',
+    highlights: [
+      'Featured official "మహా గణపతి కమిటీ" title banner',
+      'Surrounded by 100+ family Bathukammas at the village square',
+      'Vibrant community Kolatam and Bathukamma singing circle',
+      'Special floral Gouramma crown at the pinnacle'
+    ]
+  },
+  {
+    id: 'bathukamma-2022',
+    year: '2022',
+    order: 'Fourth',
+    title: 'Maha Bathukamma 2022',
+    subtitle: 'Colossal Floral Monument with Lettering',
+    image: '/bathukamma/bathukamma_2022.jpg',
+    photos: ['/bathukamma/bathukamma_2022.jpg'],
+    height: '18+ Feet',
+    flowersUsed: 'Thousands of Yellow & Orange Marigold blossoms',
+    description: 'A monumental, towering floral installation sculpted with floral typography embedded directly into the marigold body. Standing nearly two stories tall under dedicated bamboo scaffolding, marking Bandarupally’s most ambitious floral tribute to Mother Nature.',
+    highlights: [
+      'Towering 18+ foot cylindrical floral monument',
+      'Handcrafted Telugu floral lettering sculpted into the layers',
+      'Crafted over 18 continuous hours by dedicated youth volunteers',
+      'Record gathering of devotees and cultural spectators'
+    ]
+  },
+  {
+    id: 'bathukamma-2024',
+    year: '2024',
+    order: 'Fifth',
+    title: 'Maha Bathukamma 2024',
+    subtitle: 'Divine Gouramma Mukha Alankaram',
+    image: '/bathukamma/bathukamma_2024_2.jpg',
+    photos: ['/bathukamma/bathukamma_2024_1.jpg', '/bathukamma/bathukamma_2024_2.jpg'],
+    height: '18+ Feet',
+    flowersUsed: 'Dense Yellow & Orange Marigold blossoms, Crown Tilak & Sacred Flora',
+    description: 'The magnificent 2024 edition featuring an ornate sacred idol face (Gouramma Mukham) adorned with vermilion tilak and golden crown embedded centrally in layers of thick saffron marigolds, evoking intense spiritual devotion.',
+    highlights: [
+      'Sacred sculpted Gouramma face embedded into the floral summit',
+      'Multi-angle closeups capturing fine artisan detailing and tilak',
+      'Dense golden and saffron marigold layered architecture',
+      'Overwhelming participation of village women in traditional devotional attire'
+    ]
+  },
+  {
+    id: 'bathukamma-2025',
+    year: '2025',
+    order: 'Sixth',
+    title: 'Maha Bathukamma 2025',
+    subtitle: 'Supreme Maha Ganapati Committee Monument',
+    image: '/bathukamma/bathukamma_2025_1.jpg',
+    photos: ['/bathukamma/bathukamma_2025_1.jpg', '/bathukamma/bathukamma_2025_2.jpg'],
+    height: '20+ Feet',
+    flowersUsed: 'Golden Marigolds, Orange Banthi, Lotus Petal Halo & Committee Banner',
+    description: 'The grandest, most towering Maha Bathukamma reaching an unprecedented 20+ feet high. Crowned with a divine golden idol and lotus halo, enveloped with the prestigious "మహా గణపతి కమిటీ" banner against a clear blue sky, celebrated with unmatched fervor in Bandarupally.',
+    highlights: [
+      'Record-breaking 20+ foot soaring conical floral tower',
+      'Signature "మహా గణపతి కమిటీ" blue & pink banner crowning the apex',
+      'Lotus petal crown alankaram atop Mother Gouramma',
+      'Spectacular daytime festival view uniting the entire Bandarupally community'
+    ]
+  }
+];
+
+

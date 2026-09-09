@@ -11,6 +11,7 @@ import VillageHelp from '../pages/VillageHelp';
 import Events from '../pages/Events';
 import Committee from '../pages/Committee';
 import Contact from '../pages/Contact';
+import MahaBathukamma from '../pages/MahaBathukamma';
 import AdminLogin from '../pages/AdminLogin';
 import AdminDashboard from '../pages/AdminDashboard';
 
@@ -28,6 +29,8 @@ export const AppRoutes: React.FC = () => {
         <Route path="about" element={<About />} />
         <Route path="gallery" element={<Gallery />} />
         <Route path="gallery/:year" element={<YearGallery />} />
+        <Route path="maha-bathukamma" element={<MahaBathukamma />} />
+        <Route path="bathukamma" element={<Navigate to="/maha-bathukamma" replace />} />
         <Route path="videos" element={<Navigate to="/gallery" replace />} />
         <Route path="village-help" element={<VillageHelp />} />
         <Route path="events" element={<Events />} />
