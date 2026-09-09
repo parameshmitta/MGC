@@ -14,23 +14,43 @@ export const Contact: React.FC = () => {
   const [message, setMessage] = useState('');
   const [success, setSuccess] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !phone || !message) return;
 
     const contactLog = {
-      id: Date.now(),
-      name,
-      email,
-      phone,
-      message,
+      id: `msg-${Date.now()}`,
+      name: name.trim(),
+      email: email.trim() || 'Not Provided',
+      phone: phone.trim(),
+      message: message.trim(),
+      status: 'unread',
+      isStarred: false,
+      adminReply: null,
       createdAt: new Date().toISOString()
     };
 
+    // Save to local storage
     const saved = localStorage.getItem('contactSubmissions');
     const list = saved ? JSON.parse(saved) : [];
-    list.push(contactLog);
-    localStorage.setItem('contactSubmissions', JSON.stringify(list));
+    const updatedList = [contactLog, ...list];
+    localStorage.setItem('contactSubmissions', JSON.stringify(updatedList));
+
+    // Optional Supabase cloud synchronization
+    try {
+      const { supabase } = await import('../lib/supabase');
+      await supabase.from('contact_messages').insert([
+        {
+          name: contactLog.name,
+          email: contactLog.email,
+          phone: contactLog.phone,
+          message: contactLog.message,
+          created_at: contactLog.createdAt
+        }
+      ]);
+    } catch {
+      // Graceful offline fallback
+    }
 
     setSuccess(true);
     setName('');
@@ -40,7 +60,7 @@ export const Contact: React.FC = () => {
 
     setTimeout(() => {
       setSuccess(false);
-    }, 3000);
+    }, 3500);
   };
 
   return (
